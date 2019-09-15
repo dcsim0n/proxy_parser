@@ -1,12 +1,10 @@
 
 
 //Query for data with:
-const rows = document.getElementById('dataID').querySelectorAll("tr");
 
-let proxyRows
-rows.forEach(row => {
-  if(row.children[0].innerText.match(/\d+\.\d+\.\d+\./)){
-    proxyRows.push(row)
-  }})
+const parsedom = require('./fp/jsdom');
+const domquery = require('./fp/domquery');
 
-let proxies = proxyTr.map( (row) => `${row.children[0].innerText}:${row.children[1].innerText}`)
+
+
+parsedom().then( dom => setTimeout( ()=> domquery(dom), 4000));
