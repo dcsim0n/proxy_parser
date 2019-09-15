@@ -21,7 +21,8 @@ function domquery( dom ){
   console.log('Number of rows: ', rows.length);
   let proxyRows = []
   rows.forEach(row => {
-    if(row.children[0].innerHTML.match(/\d+\.\d+\.\d+\./)){                                                                 proxyRows.push(row)
+    if(row.children[0].innerHTML.match(/\d+\.\d+\.\d+\./)){
+      proxyRows.push(row)
     }
   });
   // the ip of each proxy is child 0, the port is child [1]
@@ -35,4 +36,4 @@ function domquery( dom ){
 
 
 // Load the page in JSDOM then wait a few seconds for the page to execute before parsing
-buildDOM(url).then( dom => setTimeout( ()=> domquery(dom), 4000));
+buildDOM(URL).then( dom => setTimeout( ()=> domquery(dom), 4000));
