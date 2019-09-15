@@ -5,7 +5,9 @@
   "author": "Dana Simmons <dsanalog@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^15.1.1",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
   }
 }

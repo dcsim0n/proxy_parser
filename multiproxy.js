@@ -1,23 +1,22 @@
 
-
-const jsdom = require('jsdom');
-const { JSDOM } = jsdom;
+const fs = require('fs');
+const request = require('request');
 
 const URL = "http://multiproxy.org/cgi-bin/search-proxy.pl";
 
-JSDOM.fromURL(URL)
-.then( dom => {
-  const body =  dom.window.document.querySelector("center");
-  console.log(body);
-  console.log("Got ",body.length," number fo charachters");
-
-  //document.querySelectorAll("center")[1].innerText.split('\n');
-
-  const lines = body.split('\n');
+request(URL, ( err, resp, body ) => {
+  console.log(`Got ${body.length} number of characters`);
+  
+  const lines = body.split('<br>');
+  //const lines = breaks.split('\n');
 
   console.log("Parsing ", lines.length, " number of lines");
-
-  lines.filter(( line ) => {
-    return line.match(/\d+\.\d+\.\d+\.\d+\.:\d+/)
+  console.log(lines[200]);
+  const proxies = lines.filter(( line ) => {
+    return line.match(/\d+\.\d+\.\d+\.\d+:\d+/)
   });
+ 
+ 
+   
+  console.log(proxies);
 });
