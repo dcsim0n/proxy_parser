@@ -1,5 +1,8 @@
-
-const fs = require('fs');
+/*
+ * 2019 Dana Simmons, based on code from 
+ * https://rmccurdy.com/scripts/PupProxyCheck/multiproxy.js
+ *
+*/
 const request = require('request');
 
 const URL = "http://multiproxy.org/cgi-bin/search-proxy.pl";
